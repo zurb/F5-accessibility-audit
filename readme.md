@@ -4,12 +4,12 @@ Foundation to be more accesibile out-of-the-box
 
 ## Tips I’m seeing
 Follow the three rules of ARIA
-Change .button to button and a 
-Change disabled to [disabled] , style to use:  [disabled], a:not([href]) 
+Change .button to button and a
+Change disabled to [disabled] , style to use:  [disabled], a:not([href])
 “ Links without hrefs, like buttons which include disabled, do not and should not receive focus”
-Buttons should never be left empty, there’s specific ways to meet this requirement we don’t meet yet (pg. 28) 
-Our tooltips should show during hover *and* focus 
-alt should read like what the label would read like as standard text; "it express the function, not a description of something someone can’t see" 
+Buttons should never be left empty, there’s specific ways to meet this requirement we don’t meet yet (pg. 28)
+Our tooltips should show during hover *and* focus
+alt should read like what the label would read like as standard text; "it express the function, not a description of something someone can’t see"
 
 ## General
 - We must follow the three golden rules of ARIA at all times: http://www.w3.org/TR/aria-in-html/#first-rule-of-aria-use
@@ -43,7 +43,7 @@ alt should read like what the label would read like as standard text; "it expres
 - We should use alt with tooltips to make it useable for keyboard users as well.
 - `aria-describedby` for the tooltips' targets and the toggling of its `aria-hidden`
   value
-- `role=tooltip` 
+- `role=tooltip`
 
 ## Off-Canvas
 - Must support the use of anchor tags and buttons to trigger offcanvas
@@ -131,6 +131,8 @@ alt should read like what the label would read like as standard text; "it expres
 - `aria-valuemax`, `aria-valuemin`, `aria-valuenow` must be used
 - `aria-valuetext` must be used if we're going to have visual text show what
   value is the range slider at any moment like some of our examples.
+- Consider a version or have the styles applied to an `input` tag with
+  `type=value`
 
 ## Modals (General Gotchas)
 - `role=alertdialog` makes sense for these elements since they are important for
@@ -190,3 +192,19 @@ alt should read like what the label would read like as standard text; "it expres
 
 ## Interchange
 - `aria-atomic=true` & `aria-live="assertive"`
+
+## Side-nav, Pagination, Subnav, Breadcrumb
+- `role=navigation`
+- Disabled has to have anchor tags without `href`
+
+# Thumbnails
+- `aria-expanded` used on the link that's annotated with the
+- anchor tags need to link to the actual image, even with its advanced usage and
+  have the `role="button"`
+- aria-label is needed to inform the user of the intent of this component
+- `aria-hidden=true` needed for the image available.
+
+# Abide
+- `aria-describedby` must be used by the error tooltips.
+- They must also have `[role=tooltip]`
+
