@@ -67,6 +67,8 @@ alt should read like what the label would read like as standard text; "it expres
   aria-expanded,  **and**
   `aria-controls` values that make sense.
 
+- List items w/ nested menus must use `aria-haspopup`
+
 # Reveal
 - We must change reveal to listen for anchor tags with role=button and buttons
 
@@ -82,6 +84,9 @@ alt should read like what the label would read like as standard text; "it expres
   includes supporting the open milestone.
   `(HTMLDialogElement)`
 
+- Using dialog, we use `display: none` by default, and `display:block` when it
+  is ready to be showed
+
 - `role=alertdialog` or `role=dialog` *must* be used. NO exception. For warning and
   errors, as well as the benefit of using `aria-live-regions` (`live-regions` get read aloud the moment they change), we should consider
   using by default and then have an accessibility section on the Foundation docs
@@ -90,7 +95,7 @@ alt should read like what the label would read like as standard text; "it expres
   `role=alertdialog` declaration would make the dialog box too powerful.
 
 - `aria-describedby` is necessary in order for the dialog text to be respected
-  as being associated with the dialog.
+  as being associated with the dialog; The dialog must refer
 
 - While open, it *must* not be possible for other elements to be in focus. This
   is actually harder than it sounds. Heydon's recommendation from past work
@@ -100,6 +105,13 @@ alt should read like what the label would read like as standard text; "it expres
   `$('body > *:not(dialog').addClass('mod-hidden'); `*
 
 - We must return focus back to whatever triggered reveal;
+
+- For Reveal modals using AJAX, we must use `aria-busy` and `aria-atomic=true`
+
+- We will likely create an Accessibility section that goes into details on when
+  to use such states as an opportunity to educate them in order for us to do
+  less guesswork on how certain classes of alert we support now and in the
+  future adheres to the rules.
 
 ## Magellan
 - Magellan will be a somewhat hard component to make accessible.
@@ -120,13 +132,27 @@ alt should read like what the label would read like as standard text; "it expres
 - `aria-valuetext` must be used if we're going to have visual text show what
   value is the range slider at any moment like some of our examples.
 
-## Alert dialog
+## Modals (General Gotchas)
 - `role=alertdialog` makes sense for these elements since they are important for
   the user to acknowledge before proceding further alone the document.
 - Accordingly, this then focuses us to make sure we have JS to make sure other
   things aren't focusable until modals are  closed.
 
 - We must allow escape to close the dialog.
+
+## Alert
+- Alerts meant to be errors or critical information need to use `role="alert"`
+  and `aria-live=assertive`
+
+- Other alerts will need to have `aria-live=polite` and `role="status"`
+
+- You may have to poll to get this to work correctly for alerts that can be used
+
+- `aria-atomic` must also be refined to have `aria-live` work the way it should
+  react for alerts that can change in value significantly (or related ones)
+  inside a particular block of content.
+
+
 
 ## Panel
 - N/A
@@ -161,3 +187,6 @@ alt should read like what the label would read like as standard text; "it expres
 - `aria-selected` must be used for the open tab
 - Remove the default accessibilty features of `li`, `dl`, and so on to a special
   role dedicated for widgets such as tabs: `presentation`.
+
+## Interchange
+- `aria-atomic=true` & `aria-live="assertive"`
