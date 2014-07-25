@@ -3,13 +3,13 @@ The following is guidelines and tips to consider with the pending upheaval of
 Foundation to be more accesibile out-of-the-box
 
 ## Tips I’m seeing
-Follow the three rules of ARIA
-Change .button to button and a
-Change disabled to [disabled] , style to use:  [disabled], a:not([href])
-“ Links without hrefs, like buttons which include disabled, do not and should not receive focus”
-Buttons should never be left empty, there’s specific ways to meet this requirement we don’t meet yet (pg. 28)
-Our tooltips should show during hover *and* focus
-alt should read like what the label would read like as standard text; "it express the function, not a description of something someone can’t see"
+- Follow the three rules of ARIA
+- Change .button to button and a
+- Change disabled to [disabled] , style to use:  [disabled], a:not([href])
+- “Links without hrefs, like buttons which include disabled, do not and should not receive focus”
+- Buttons should never be left empty, there’s specific ways to meet this requirement we don’t meet yet (pg. 28)
+- Our tooltips should show during hover *and* focus
+- alt should read like what the label would read like as standard text; "it express the function, not a description of something someone can’t see"
 
 ## General
 - We must follow the three golden rules of ARIA at all times: http://www.w3.org/TR/aria-in-html/#first-rule-of-aria-use
@@ -154,8 +154,6 @@ alt should read like what the label would read like as standard text; "it expres
   react for alerts that can change in value significantly (or related ones)
   inside a particular block of content.
 
-
-
 ## Panel
 - N/A
 
@@ -167,7 +165,7 @@ alt should read like what the label would read like as standard text; "it expres
   for.
 
 ## Joyride
-- # Hardest one to get right; I'll have to think about this overnight.
+- Hardest one to get right; I'll have to think about this overnight.
 
 ## Progress bar
 - Must get a `tab-index` value of -1 so it can be focused; it must then have a
