@@ -1,0 +1,60 @@
+- # Modal
+
+%a{ href: '#', data: { "reveal-id" => "#myModal" }, aria: { role: "button" } } Click Me For A Model
+%button{ data: { "reveal-id" => "#myModal" } } Click Me For A Model
+
+#myModal.reveal-modal{ data: { reveal: true }, aria: { role: "alertdialog", describedby: "reveal-message", busy: false }, tabindex: 0 }
+  %div
+    - # I need to do homework on whthewr or not, if I have more than one block of text read, I can add reveal-message around a block of content instead of within a single element
+    %div
+      %h1#reveal-message Awesome. I have it.
+      %p Adipisicing expedita minima labore reiciendis natus ex? Sunt atque non blanditiis beatae asperiores vero eligendi ratione aut? Commodi iure rerum porro quos ullam mollitia, similique! Qui provident blanditiis officia ut.
+
+:coffee
+  close.on 'keydown', (e)->
+    if ( e.keyCode || e.which ) == 9
+      dialog.focus()
+      e.preventDefault()
+  # on escape, the dialog can be closed
+  $(dialog).on 'keypress.escape', (e)->
+    if e.keycode == 27
+      closeDialog()
+
+- # Icon Bar w/ Text - Tab Usage
+%nav.icon-bar.five-up{ aria: { role: 'navigation' } }
+  %button{ aria: { labeledby: "#itemlabel1" } }
+    %img{ src: "placehold.it&text=Home" }
+    %span#itemlabel1 Home
+
+
+- # Icon Bar w/o Text - Tab Usage
+%nav.icon-bar.five-up{ aria: { role: 'navigation' } }
+  %button{ aria: { labeledby: "#itemlabel1", label: 'home' } }
+    %img{ src: "placehold.it&text=Home" }
+
+- # Icon Bar w/ Text - Regular  Usage
+%nav.icon-bar.five-up{ aria: { role: 'navigation' } }
+  %a{ href: "#", aria: { labeledby: "#itemlabel1", label: 'home', role: "button" } }
+    %img{ src: "placehold.it&text=Home" }
+    %span#itemlabel1 Home
+
+- # Icon Bar w/o Text - Regular  Usage
+%nav.icon-bar.five-up{ aria: { role: 'navigation' } }
+  %a{ href: "#", aria: { labeledby: "#itemlabel1", label: 'home', role: "button" } }
+    %img{ src: "placehold.it&text=Home" }
+
+- # Top Bar
+%nav.top-bar{ data: { topbar: true }, aria: { role: "navigation" } }
+  %ul.title-area{ role:"presentational" }
+  %section.top-bar-section
+    %ul.right
+      %li.active{ role:"menuitem" }
+        %button Right Button Active
+      %li.has-dropdown{ aria: { haspopup: true, expanded: true, controls: "#submenu1" } }
+        %button{ aria: { haspopup: true } }
+        %ul#submenu1{ aria: { hidden: true }, role:"group" }
+          %li{ role: "menuitem" }
+            %a{ href: "#" } Dragon
+
+- # Interchange
+%div{ aria: { busy: false, atomic: false, live: "assertive" }, role: "alert"}

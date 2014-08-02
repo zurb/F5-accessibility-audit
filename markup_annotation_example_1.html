@@ -1,0 +1,68 @@
+<a aria-role='button' data-reveal-id='#myModal' href='#'>Click Me For A Model</a>
+<button data-reveal-id='#myModal'>Click Me For A Model</button>
+<div aria-describedby='reveal-message' aria-role='alertdialog' class='reveal-modal' data-reveal id='myModal' tabindex='0'>
+  <div>
+    <div>
+      <h1 id='reveal-message'>Awesome. I have it.</h1>
+      <p>Adipisicing expedita minima labore reiciendis natus ex? Sunt atque non blanditiis beatae asperiores vero eligendi ratione aut? Commodi iure rerum porro quos ullam mollitia, similique! Qui provident blanditiis officia ut.</p>
+    </div>
+  </div>
+</div>
+<script>
+  (function() {
+    close.on('keydown', function(e) {
+      if ((e.keyCode || e.which) === 9) {
+        dialog.focus();
+        return e.preventDefault();
+      }
+    });
+  
+    $(dialog).on('keypress.escape', function(e) {
+      if (e.keycode === 27) {
+        return closeDialog();
+      }
+    });
+  
+  }).call(this);
+</script>
+<nav aria-role='navigation' class='icon-bar five-up'>
+  <button aria-labeledby='#itemlabel1'>
+    <img src='placehold.it&amp;text=Home'>
+    <span id='itemlabel1'>Home</span>
+  </button>
+</nav>
+<nav aria-role='navigation' class='icon-bar five-up'>
+  <button aria-label='home' aria-labeledby='#itemlabel1'>
+    <img src='placehold.it&amp;text=Home'>
+  </button>
+</nav>
+<nav aria-role='navigation' class='icon-bar five-up'>
+  <a aria-label='home' aria-labeledby='#itemlabel1' aria-role='button' href='#'>
+    <img src='placehold.it&amp;text=Home'>
+    <span id='itemlabel1'>Home</span>
+  </a>
+</nav>
+<nav aria-role='navigation' class='icon-bar five-up'>
+  <a aria-label='home' aria-labeledby='#itemlabel1' aria-role='button' href='#'>
+    <img src='placehold.it&amp;text=Home'>
+  </a>
+</nav>
+<nav aria-role='navigation' class='top-bar' data-topbar>
+  <ul class='title-area' role='presentational'></ul>
+  <section class='top-bar-section'>
+    <ul class='right'>
+      <li class='active' role='menuitem'>
+        <button>Right Button Active</button>
+      </li>
+      <li aria-controls='#submenu1' aria-expanded aria-haspopup class='has-dropdown'>
+        <button aria-haspopup></button>
+        <ul aria-hidden id='submenu1' role='group'>
+          <li role='menuitem'>
+            <a href='#'>Dragon</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>
+<div aria-live='assertive' role='alert'></div>

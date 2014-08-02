@@ -47,7 +47,7 @@ Foundation to be more accesibile out-of-the-box
 
 ## Off-Canvas
 - Must support the use of anchor tags and buttons to trigger offcanvas
-- aria-expanded is needed for the button
+- aria-expanded is needed for the button that triggers the offcanvas effect
 - `aria-role = navigation` is needed for the navigation area
 - `aria-hidden` is needed for the navigation area
 - role = button has to be used the navigation anchor tag **and** aria-controls
@@ -56,16 +56,19 @@ Foundation to be more accesibile out-of-the-box
   the page for PE reasons
 - We needed an `aria-label` sign for our hamburger sign. Daresay we may need to
   consider for Foundation for Apps or version 6 to add "menu"
+- `aria-haspopup` must be set to `true` for the default 
 
 ## Icon-bar
-- All the icons should use aria-label
+- All the icons should use aria-label to defined what they are (unless text
+  later in the dom explains what it is).
 - If text are needed for the icons, we need to give it an id to then pass into the
   icon bar's `aria-labeledy` attribute.
 
 ## Top Bar
 - Same feedback as above with nested links having to be `[role=button]`,
-  aria-expanded,  **and**
-  `aria-controls` values that make sense.
+  aria-expanded,  **and** have its parent element (li) annotated  as `menuitem`
+  or `presentational`
+- `aria-controls` values that make sense.
 
 - List items w/ nested menus must use `aria-haspopup`
 
@@ -81,7 +84,7 @@ Foundation to be more accesibile out-of-the-box
   the modal.
 
 - Support `<dialog>` and the `show()`, `showModal()`, and `close()` methods. This
-  includes supporting the open milestone.
+  includes supporting the open attribute with how reveal is executed.
   `(HTMLDialogElement)`
 
 - Using dialog, we use `display: none` by default, and `display:block` when it
@@ -165,15 +168,14 @@ Foundation to be more accesibile out-of-the-box
   for.
 
 ## Joyride
-- Hardest one to get right; I'll have to think about this overnight.
+- # Hardest one to get right; I'll have to think about this some more.
 
 ## Progress bar
 - Must get a `tab-index` value of -1 so it can be focused; it must then have a
-  ``aria-label` or `aria-valuetext` to represent what what its percentage
+  `aria-label` or `aria-valuetext` to represent what what its percentage
   ultimately resolves to (I have to do research what works best for it)
 - I have a hunch that `<progress>` has a `role` alternative to use since we're
-  for some reason not using native `progress` elements to then style. My guess
-    by using such a role + `aria-valuemax`, `aria-valuemin`, `aria-valuenow` can then be used, simplifying making our progress bars accessible.
+  for some reason not using native `progress` elements to then style. My guess by using such a role + `aria-valuemax`, `aria-valuemin`, `aria-valuenow` can then be used, simplifying making our progress bars accessible.
 
 ## Tables
 - Must use the role of `grid`
@@ -190,6 +192,10 @@ Foundation to be more accesibile out-of-the-box
 
 ## Interchange
 - `aria-atomic=true` & `aria-live="assertive"`
+- `aria-busy` being toggled true and false may also be needed if content will be
+  ajaxed extensively.
+- An Accessibility section written on the implications of using `aria-atomic` to
+  be `false` instead of `true`.
 
 ## Side-nav, Pagination, Subnav, Breadcrumb
 - `role=navigation`
