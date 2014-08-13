@@ -105,7 +105,7 @@ Foundation to be more accesibile out-of-the-box
   is aria-hidden & a custom class of visibility:hidden (elements retain their
   layout, so they don't "jump" back into place in an inelegant way after the
   dialog box is close)
-  `$('body > *:not(dialog').addClass('mod-hidden'); `*
+  `$('body > *:not(dialog').addClass('mod-hidden');`
 
 - We must return focus back to whatever triggered reveal;
 
@@ -178,7 +178,9 @@ Foundation to be more accesibile out-of-the-box
   for some reason not using native `progress` elements to then style. My guess by using such a role + `aria-valuemax`, `aria-valuemin`, `aria-valuenow` can then be used, simplifying making our progress bars accessible.
 
 ## Tables
-- Must use the role of `grid`
+- Must use the role of `grid` where necessary; 
+- Accessibility section on `thead`, `tfoot`, `tcaption`, and `tbody` despite
+  them being already accounted for with CSS.
 
 ## Tabs
 - Our tabs will likely have to slightly reengineed.
