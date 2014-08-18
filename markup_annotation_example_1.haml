@@ -1,11 +1,11 @@
-- # Modal
+/ Modal
 
 %a{ href: '#', data: { "reveal-id" => "#myModal" }, aria: { role: "button" } } Click Me For A Model
 %button{ data: { "reveal-id" => "#myModal" } } Click Me For A Model
 
 #myModal.reveal-modal{ data: { reveal: true }, aria: { role: "alertdialog", describedby: "reveal-message", busy: false }, tabindex: 0 }
   %div
-    - # I need to do homework on whthewr or not, if I have more than one block of text read, I can add reveal-message around a block of content instead of within a single element
+    / I need to do homework on whthewr or not, if I have more than one block of text read, I can add reveal-message around a block of content instead of within a single element
     %div
       %h1#reveal-message Awesome. I have it.
       %p Adipisicing expedita minima labore reiciendis natus ex? Sunt atque non blanditiis beatae asperiores vero eligendi ratione aut? Commodi iure rerum porro quos ullam mollitia, similique! Qui provident blanditiis officia ut.
@@ -20,30 +20,30 @@
     if e.keycode == 27
       closeDialog()
 
-- # Icon Bar w/ Text - Tab Usage
+/ Icon Bar w/ Text - Tab Usage
 %nav.icon-bar.five-up{ aria: { role: 'navigation' } }
   %button{ aria: { labeledby: "#itemlabel1" } }
     %img{ src: "placehold.it&text=Home" }
     %span#itemlabel1 Home
 
 
-- # Icon Bar w/o Text - Tab Usage
+/ Icon Bar w/o Text - Tab Usage
 %nav.icon-bar.five-up{ aria: { role: 'navigation' } }
   %button{ aria: { labeledby: "#itemlabel1", label: 'home' } }
     %img{ src: "placehold.it&text=Home" }
 
-- # Icon Bar w/ Text - Regular  Usage
+/ Icon Bar w/ Text - Regular  Usage
 %nav.icon-bar.five-up{ aria: { role: 'navigation' } }
   %a{ href: "#", aria: { labeledby: "#itemlabel1", label: 'home', role: "button" } }
     %img{ src: "placehold.it&text=Home" }
     %span#itemlabel1 Home
 
-- # Icon Bar w/o Text - Regular  Usage
+/ Icon Bar w/o Text - Regular  Usage
 %nav.icon-bar.five-up{ aria: { role: 'navigation' } }
   %a{ href: "#", aria: { labeledby: "#itemlabel1", label: 'home', role: "button" } }
     %img{ src: "placehold.it&text=Home" }
 
-- # Top Bar
+/ Top Bar
 %nav.top-bar{ data: { topbar: true }, aria: { role: "navigation" } }
   %ul.title-area{ role:"presentational" }
   %section.top-bar-section
@@ -56,5 +56,50 @@
           %li{ role: "menuitem" }
             %a{ href: "#" } Dragon
 
-- # Interchange
+/ Interchange
 %div{ aria: { busy: false, atomic: false, live: "assertive" }, role: "alert"}
+
+/ Offcanvas
+.off-canvas-wrap{ data: { offcanvas: true } }
+
+  /
+    May be replaced with <main> if  this is being done directly after body and the content within .inner-wrap is the primary content of the page.
+  %main.inner-wrap
+    %button.left-off-canvas-toggle" Menu
+
+    /
+      If you use an element other than nav, please use aria: { role: "navigation" }
+    %nav.left-off-canvas-menu{ aria: { expanded: "true", haspopup: "true" } }
+      %ul{ aria: { role: "menu" } }
+        %li{ aria: { role: "menuitem" } } Item 1
+        /
+          ...
+    %button.exit-off-canvas 
+/ Clearing
+%ul.clearing-thumbs.small-block-grid-4{ data: { clearing: true }, aria: { live: "assertive", role: "alert", atomic: "false" } }
+  %li
+    %a{ role:"button", aria: { label: "????", haspopup: "true"  } }
+      /
+        Caption should be removed and replaced with merely accessing alt/title and/or aria-label
+      %img{ src: "pathToImage", data: { caption: "caption1" }, aria: { hidden: "true", label: "caption1"} }
+
+/
+  Clearing's generated modal box - It should be changed into a dialog element 
+%dialog.clearing-assembled.clearing-blackout
+  .clearing-container
+    / 
+      I'm personally confused why there's a style attribute here....
+    %figure.visible-img{ style: "display: block;" }
+      %img{ src: "legacy_images.png" }
+      %figcaption Caption of Image here
+      %button.clearing-main-prev{ aria: { label: "Previous Image" } }
+      %button.clearing-main-next{ aria: { label: "Next Image" } }
+    /
+      *Never* use 'x' instead of &times for a close
+    %button.clearing-close{ aria: { label: "Close this widget." } } &times;
+
+%ul{ aria: { role: "tablist" } }
+  %li.tab-title{ aria: { role: "presentation", selected: "true", controls: "panel1"  } }
+    %a{ href: '#panel1' aria: { role: "tab" } } Tab 1
+.tabs-content{ aria: { role: "presentational" } }
+  %section#panel1{ aria: { role: "tabpanel", hidden: "false" } }
