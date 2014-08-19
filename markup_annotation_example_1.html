@@ -1,0 +1,134 @@
+<!-- Modal -->
+<a data-reveal-id='#myModal' href='#' role='button'>Click Me For A Model</a>
+<button data-reveal-id='#myModal'>Click Me For A Model</button>
+<div aria-describedby='reveal-message' class='reveal-modal' data-reveal id='myModal' role='alertdialog' tabindex='0'>
+  <div>
+    <!-- I need to do homework on whthewr or not, if I have more than one block of text read, I can add reveal-message around a block of content instead of within a single element -->
+    <div>
+      <h1 id='reveal-message'>Awesome. I have it.</h1>
+      <p>Adipisicing expedita minima labore reiciendis natus ex? Sunt atque non blanditiis beatae asperiores vero eligendi ratione aut? Commodi iure rerum porro quos ullam mollitia, similique! Qui provident blanditiis officia ut.</p>
+    </div>
+  </div>
+</div>
+<script>
+  (function() {
+    close.on('keydown', function(e) {
+      if ((e.keyCode || e.which) === 9) {
+        dialog.focus();
+        return e.preventDefault();
+      }
+    });
+  
+    $(dialog).on('keypress.escape', function(e) {
+      if (e.keycode === 27) {
+        return closeDialog();
+      }
+    });
+  
+  }).call(this);
+</script>
+<!-- Icon Bar w/ Text - Tab Usage -->
+<nav class='icon-bar five-up' role='navigation'>
+  <button aria-labeledby='#itemlabel1'>
+    <img src='placehold.it&amp;text=Home'>
+    <span id='itemlabel1'>Home</span>
+  </button>
+</nav>
+<!-- Icon Bar w/o Text - Tab Usage -->
+<nav class='icon-bar five-up' role='navigation'>
+  <button aria-label='home' aria-labeledby='#itemlabel1'>
+    <img src='placehold.it&amp;text=Home'>
+  </button>
+</nav>
+<!-- Icon Bar w/ Text - Regular  Usage -->
+<nav class='icon-bar five-up' role='navigation'>
+  <a aria-label='home' aria-labeledby='#itemlabel1' aria-role='button' href='#'>
+    <img src='placehold.it&amp;text=Home'>
+    <span id='itemlabel1'>Home</span>
+  </a>
+</nav>
+<!-- Icon Bar w/o Text - Regular  Usage -->
+<nav class='icon-bar five-up' role='navigation'>
+  <a aria-label='home' aria-labeledby='#itemlabel1' href='#' role='button'>
+    <img src='placehold.it&amp;text=Home'>
+  </a>
+</nav>
+<!-- Top Bar -->
+<nav class='top-bar' data-topbar role='navigation'>
+  <ul class='title-area' role='presentational'></ul>
+  <section class='top-bar-section'>
+    <ul class='right'>
+      <li class='active' role='menuitem'>
+        <button>Right Button Active</button>
+      </li>
+      <li aria-controls='#submenu1' aria-expanded aria-haspopup class='has-dropdown'>
+        <button aria-haspopup></button>
+        <ul aria-hidden id='submenu1' role='group'>
+          <li role='menuitem'>
+            <a href='#'>Dragon</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>
+<!-- Interchange -->
+<div aria-live='assertive' role='alert'></div>
+<!-- Offcanvas -->
+<div class='off-canvas-wrap' data-offcanvas>
+  <!--
+    May be replaced with <main> if  this is being done directly after body and the content within .inner-wrap is the primary content of the page.
+  -->
+  <main class='inner-wrap'>
+    <button class='left-off-canvas-toggle'>" Menu</button>
+    <!--
+      If you use an element other than nav, please use aria: { role: "navigation" }
+    -->
+    <nav aria-expanded='true' aria-haspopup='true' class='left-off-canvas-menu' role='navigation'>
+      <ul role='menu'>
+        <li role='menuitem'>Item 1</li>
+        <!-- ... -->
+      </ul>
+    </nav>
+    <button class='exit-off-canvas'></button>
+  </main>
+</div>
+<!-- Clearing -->
+<ul aria-atomic='false' aria-live='assertive' class='clearing-thumbs small-block-grid-4' data-clearing role='alert'>
+  <li>
+    <a aria-haspopup='true' aria-label='????' role='button'>
+      <!--
+        Caption should be removed and replaced with merely accessing alt/title and/or aria-label
+      -->
+      <img aria-hidden='true' aria-label='caption1' data-caption='caption1' src='pathToImage'>
+    </a>
+  </li>
+</ul>
+<!--
+  Clearing's generated modal box - It should be changed into a dialog element
+-->
+<dialog class='clearing-assembled clearing-blackout'>
+  <div class='clearing-container'>
+    <!--
+      I'm personally confused why there's a style attribute here....
+    -->
+    <figure class='visible-img' style='display: block;'>
+      <img src='legacy_images.png'>
+      <figcaption>Caption of Image here</figcaption>
+      <button aria-label='Previous Image' class='clearing-main-prev'></button>
+      <button aria-label='Next Image' class='clearing-main-next'></button>
+    </figure>
+    <!--
+      *Never* use 'x' instead of &times for a close
+    -->
+    <button aria-label='Close this widget.' class='clearing-close'>&times;</button>
+  </div>
+</dialog>
+<ul role='tablist'>
+  <li aria-controls='panel1' aria-selected='true' class='tab-title' role='presentation'>
+    <a href='#panel1' role='tab'>Tab 1</a>
+  </li>
+</ul>
+<div class='tabs-content' role='presentational'>
+  <section aria-hidden='false' id='panel1' role='tabpanel'></section>
+</div>
