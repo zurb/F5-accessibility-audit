@@ -1,12 +1,12 @@
 # Accessibility Audit
 The following is guidelines and tips to consider with the pending upheaval of
-Foundation to be more accesibile out-of-the-box
+Foundation to be more accessible out-of-the-box
 
 ## Tips I’m seeing
 - Follow the three rules of ARIA
 - Change .button to button and a
 - Change disabled to [disabled] , style to use:  [disabled], a:not([href])
-- “Links without hrefs, like buttons which include disabled, do not and should not receive focus”
+- “Links without `href`s, like buttons which include disabled, do not and should not receive focus”
 - Buttons should never be left empty, there’s specific ways to meet this requirement we don’t meet yet (pg. 28)
 - Our tooltips should show during hover *and* focus
 - alt should read like what the label would read like as standard text; "it express the function, not a description of something someone can’t see"
@@ -30,7 +30,7 @@ Foundation to be more accesibile out-of-the-box
 - Visiblity classes need to have or add `aria-hidden=true`
 - Disability hidden on links is useless unless you remove the `href` value for
   accessibility; we may consider using a `data` attribute to then use to store
-  and unstore an href's value.
+  and unstore an `href`'s value.
 - If some of our components need to be "disabled", they need the appropriate
   role value defined *and* which may in fact be role="button" (additional
   research required on my part); **a disabled class is useless outside of
@@ -56,7 +56,7 @@ Foundation to be more accesibile out-of-the-box
   the page for PE reasons
 - We needed an `aria-label` sign for our hamburger sign. Daresay we may need to
   consider for Foundation for Apps or version 6 to add "menu"
-- `aria-haspopup` must be set to `true` for the default 
+- `aria-haspopup` must be set to `true` for the default
 
 ## Icon-bar
 - All the icons should use aria-label to defined what they are (unless text
@@ -178,24 +178,24 @@ Foundation to be more accesibile out-of-the-box
   for some reason not using native `progress` elements to then style. My guess by using such a role + `aria-valuemax`, `aria-valuemin`, `aria-valuenow` can then be used, simplifying making our progress bars accessible.
 
 ## Tables
-- Must use the role of `grid` where necessary; 
+- Must use the role of `grid` where necessary;
 - Accessibility section on `thead`, `tfoot`, `tcaption`, and `tbody` despite
   them being already accounted for with CSS.
 
 ## Tabs
-- Our tabs will likely have to slightly reengineed.
-- Use `role=tablist`, `role=tabpanel` and  `role=tab` for the contianer of the links, for each tab
-  link and indiviudal panels
+- Our tabs will likely have to slightly re-engineered.
+- Use `role=tablist`, `role=tabpanel` and  `role=tab` for the container of the links, for each tab
+  link and individual panels
   tabs.
 - `aria-hidden` must be toggled true/false for each tab when they get focus.
 - `aria-selected` must be used for the open tab
-- Remove the default accessibilty features of `li`, `dl`, and so on to a special
+- Remove the default accessibility features of `li`, `dl`, and so on to a special
   role dedicated for widgets such as tabs: `presentation`.
 
 ## Interchange
 - `aria-atomic=true` & `aria-live="assertive"`
 - `aria-busy` being toggled true and false may also be needed if content will be
-  ajaxed extensively.
+  Ajaxed extensively.
 - An Accessibility section written on the implications of using `aria-atomic` to
   be `false` instead of `true`.
 
