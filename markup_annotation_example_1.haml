@@ -1,7 +1,7 @@
 / Modal
 
 /
-  Should NEVER be used without role=button and at all unless you're going to dynamically add something to Href later or if it's going to link to the content explicitly if JS doesn't work
+  Should NEVER be used without role=button and it shouldn't be used ever unless you're going to dynamically add something to Href later or if it's going to link to the content explicitly if JS doesn't work
   %a{ href: '#', data: { "reveal-id" => "#myModal" }, role: "button" } Click Me For A Model
 %button{ data: { "reveal-id" => "#myModal" } } Click Me For A Model
 
@@ -30,7 +30,7 @@
 
 / Icon Bar w/o Text - Tab Usage
 %nav.icon-bar.five-up{ role: 'navigation' }
-  %button{ aria: { labeledby: "#itemlabel1", label: 'home' } }
+  %button{ aria: { label: 'home' } }
     %img{ src: "placehold.it&text=Home" }
 
 / Icon Bar w/ Text - Regular  Usage
@@ -98,7 +98,7 @@
       %button.clearing-main-prev{ aria: { label: "Previous Image" } } Prev
       %button.clearing-main-next{ aria: { label: "Next Image" } } Next
     /
-      *Never* use 'x' instead of &times for a close
+      *Never* use 'x' instead of &times for a close button
     %button.clearing-close{ aria: { label: "Close this widget." } } &times;
 
 %ul{ role: "tablist" }

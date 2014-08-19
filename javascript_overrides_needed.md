@@ -45,7 +45,7 @@ this component's use by the user.
 - left and right arrow keys should be used to alternate between the next and
   previous tabs.
 - `tabindex=0` should be used on the active tab and `tabindex=-1` should be used for adjacent tabs; `focus()` should be used to go to the next and previous tabs for an element.
-- <kbd>Shift</kbd>+<kbd>Tag</kbd> should be used to switch back to a tab after
+- <kbd>Shift</kbd>+<kbd>Tab</kbd> should be used to switch back to a tab after
   tabbing or navigating through its inner content.
 
   ```javascript
