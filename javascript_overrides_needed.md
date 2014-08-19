@@ -1,7 +1,8 @@
 # JavaScript Overrides
 
 # General
-- Toggleable aria-values such as `aria-expanded` and `aria-show` should be
+- Toggle  aria-values such as `aria-expanded` and `aria-show` through a general
+  helper method (`toggleAriaValue`) to keep if/else clauses to a minimum
   toggled with the opening and instantiation of the core functionality of all
   components.
 
@@ -45,7 +46,8 @@ this component's use by the user.
   previous tabs.
 - `tabindex=0` should be used on the active tab and `tabindex=-1` should be used for adjacent tabs; `focus()` should be used to go to the next and previous tabs for an element.
 - <kbd>Shift</kbd>+<kbd>Tag</kbd> should be used to switch back to a tab after
-  tabing or navigating through its inner content.
+  tabbing or navigating through its inner content.
+
   ```javascript
   let tab  = document.querySelector(".test");
   // Function should **NOT** be passed in anonymously for testing and callback purposes.

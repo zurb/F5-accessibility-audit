@@ -1,6 +1,10 @@
 # Accessibility Audit
 The following is guidelines and tips to consider with the pending upheaval of
-Foundation to be more accessible out-of-the-box
+Foundation to be more accessible out-of-the-box.
+
+**Note this audit is currently in Alpha. This does not in anyway reflect the
+final plan towards accessibility for Foundation, and isn't edited yet for
+optimal brevity, redundancy, or readibility—nor does it yet adheres to the typical tone Zurb attaches to its entities.**
 
 ## Tips I’m seeing
 - Follow the three rules of ARIA
@@ -12,7 +16,8 @@ Foundation to be more accessible out-of-the-box
 - alt should read like what the label would read like as standard text; "it express the function, not a description of something someone can’t see"
 
 ## General
-- We must follow the three golden rules of ARIA at all times: http://www.w3.org/TR/aria-in-html/#first-rule-of-aria-use
+- We must follow the [three golden rules of ARIA at all
+  times](http://www.w3.org/TR/2013/WD-aria-in-html-20131003/#notes-on-aria-use-in-html)
 - Everything must be accessible keyboard.
 - We must seriously consider augmenting `progress`, `meter`, and `dialog` for
   the relevant components; on top of that we still must use `aria-notations` for
