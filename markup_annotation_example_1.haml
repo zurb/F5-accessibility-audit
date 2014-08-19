@@ -1,6 +1,8 @@
 / Modal
 
-%a{ href: '#', data: { "reveal-id" => "#myModal" }, role: "button" } Click Me For A Model
+/
+  Should NEVER be used without role=button and at all unless you're going to dynamically add something to Href later or if it's going to link to the content explicitly if JS doesn't work
+  %a{ href: '#', data: { "reveal-id" => "#myModal" }, role: "button" } Click Me For A Model
 %button{ data: { "reveal-id" => "#myModal" } } Click Me For A Model
 
 #myModal.reveal-modal{ data: { reveal: true }, role: "alertdialog", aria: { describedby: "reveal-message", busy: false }, tabindex: 0 }
@@ -26,7 +28,6 @@
     %img{ src: "placehold.it&text=Home" }
     %span#itemlabel1 Home
 
-
 / Icon Bar w/o Text - Tab Usage
 %nav.icon-bar.five-up{ role: 'navigation' }
   %button{ aria: { labeledby: "#itemlabel1", label: 'home' } }
@@ -34,27 +35,30 @@
 
 / Icon Bar w/ Text - Regular  Usage
 %nav.icon-bar.five-up{ role: 'navigation'  }
-  %a{ href: "#", aria: { labeledby: "#itemlabel1", label: 'home', role: "button" } }
+  %a{ href: "foo.html", aria: { labeledby: "#itemlabel1", label: 'home', role: "button" } }
     %img{ src: "placehold.it&text=Home" }
     %span#itemlabel1 Home
 
 / Icon Bar w/o Text - Regular  Usage
 %nav.icon-bar.five-up{ role: 'navigation' }
-  %a{ role: "button", href: "#", aria: { labeledby: "#itemlabel1", label: 'home' } }
+  %a{ role: "button", href: "foo.html", aria: { labeledby: "#itemlabel1", label: 'home' } }
     %img{ src: "placehold.it&text=Home" }
 
 / Top Bar
 %nav.top-bar{ data: { topbar: true }, role: "navigation" }
+  // role = presentationl + aria-hidden: true seem redundant.
   %ul.title-area{ role:"presentational" }
+    %li{ role: "presentational" }
+      %img{ src: "company_logo.webp", aria: { hidden: "true" } }
   %section.top-bar-section
     %ul.right
       %li.active{ role:"menuitem" }
         %button Right Button Active
       %li.has-dropdown{ aria: { haspopup: true, expanded: true, controls: "#submenu1" } }
-        %button{ aria: { haspopup: true } }
+        %button{ aria: { haspopup: true } } Button Item
         %ul#submenu1{ aria: { hidden: true }, role:"group" }
           %li{ role: "menuitem" }
-            %a{ href: "#" } Dragon
+            %a{ href: "foo.html" } Dragon
 
 / Interchange
 %div{ aria: { busy: false, atomic: false, live: "assertive" }, role: "alert"}
@@ -73,14 +77,14 @@
       %ul{ role: "menu" }
         %li{ role: "menuitem" } Item 1
         / ...
-    %button.exit-off-canvas
+    %button.exit-off-canvas &times;
 / Clearing
 %ul.clearing-thumbs.small-block-grid-4{ role: "alert", data: { clearing: true }, aria: { live: "assertive",  atomic: "false" } }
   %li
-    %a{ role:"button", aria: { label: "????", haspopup: "true"  } }
+    %a{ href: "pathToImage.webp", role:"button", aria: { label: "????", haspopup: "true"  } }
       /
         Caption should be removed and replaced with merely accessing alt/title and/or aria-label
-      %img{ src: "pathToImage", data: { caption: "caption1" }, aria: { hidden: "true", label: "caption1"} }
+      %img{ src: "pathToImage.webp", data: { caption: "caption1" }, aria: { hidden: "true", label: "caption1"} }
 
 /
   Clearing's generated modal box - It should be changed into a dialog element
@@ -91,8 +95,8 @@
     %figure.visible-img{ style: "display: block;" }
       %img{ src: "legacy_images.png" }
       %figcaption Caption of Image here
-      %button.clearing-main-prev{ aria: { label: "Previous Image" } }
-      %button.clearing-main-next{ aria: { label: "Next Image" } }
+      %button.clearing-main-prev{ aria: { label: "Previous Image" } } Prev
+      %button.clearing-main-next{ aria: { label: "Next Image" } } Next
     /
       *Never* use 'x' instead of &times for a close
     %button.clearing-close{ aria: { label: "Close this widget." } } &times;
