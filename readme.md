@@ -1,6 +1,10 @@
 # Accessibility Audit
-The following is guidelines and tips to consider with the pending upheaval of
-Foundation to be more accessible out-of-the-box.
+The following is guidelines and tips to consider with the upcoming changes to
+make Foundation to be more accessible out-of-the-box.
+
+More technical recommendations and examples will be in separate documents; if
+they can be conveniently in digital form, they should be within this repo.
+
 
 **Note this audit is currently in Alpha. This does not in anyway reflect the
 final plan towards accessibility for Foundation, and isn't edited yet for

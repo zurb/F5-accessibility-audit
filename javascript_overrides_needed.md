@@ -5,6 +5,8 @@
   helper method (`toggleAriaValue`) to keep if/else clauses to a minimum
   toggled with the opening and instantiation of the core functionality of all
   components.
+- After an unusual sounding voice-over after a QA session with Chrome VOX , `role="alert"` & `role="status"` will be
+  replaced with `dialogalert` sometimes.
 
 ## Reveal
 - If an element has [data-reveal] and isn't a dialog, create a dialog element
