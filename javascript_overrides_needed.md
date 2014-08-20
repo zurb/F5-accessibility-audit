@@ -37,6 +37,10 @@
   alternating true and false when an activated modal happens
 - The wrapper with the main image of an activated modal, should have
   `aria-live="assertive"` & `role="status"`
+- `tab-index` = 0 set on figure and the thumbnails of other images
+- Being now a dialog instance, escape should be able to close the clearing box.
+- A decisions should be made whether or not we explicitly state what a clearing
+  image exposes when clicked via `aria-controls`
 
 ## Tabs
 - `aria-selected`, `aria-hidden`, and other toggle aria-values outlined in the
@@ -47,6 +51,9 @@ this component's use by the user.
 - `tabindex=0` should be used on the active tab and `tabindex=-1` should be used for adjacent tabs; `focus()` should be used to go to the next and previous tabs for an element.
 - <kbd>Shift</kbd>+<kbd>Tab</kbd> should be used to switch back to a tab after
   tabbing or navigating through its inner content.
+- The `first-child` should have a tab-index=0 of the selected Tab so that they
+  tab into its contents instead of activating Tabs adjacent to other
+  tabs by mistake.
 
   ```javascript
   let tab  = document.querySelector(".test");
