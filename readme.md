@@ -45,10 +45,12 @@ optimal brevity, redundancy, or readibility—nor does it yet adheres to the typ
   research required on my part); **a disabled class is useless outside of
   visually making it appear disabled; you must use the
   [disabled] attribute.
-
 - with our display none calls, we should use aria-hidden as well.
 - For input elements, use other visbility techniques to make the input invisible
   but still focusable. 
+- If you must dramatic change a form input, do not use `display:none` or
+  `visibility:none`, use `opacity`, `clip`, & strategic use of valid positioning and
+  z-index values instead
 
 ## Tooltips
 - We should use alt with tooltips to make it useable for keyboard users as well.
@@ -116,7 +118,8 @@ optimal brevity, redundancy, or readibility—nor does it yet adheres to the typ
   is aria-hidden & a custom class of visibility:hidden (elements retain their
   layout, so they don't "jump" back into place in an inelegant way after the
   dialog box is close)
-  `$('body > *:not(dialog').addClass('mod-hidden');`
+  `$('body > *:not(dialog').addClass('mod-hidden');` (If we use `showModal()`,
+  this isn't a problem)
 
 - We must return focus back to whatever triggered reveal;
 
@@ -150,7 +153,7 @@ optimal brevity, redundancy, or readibility—nor does it yet adheres to the typ
 
 ## Modals (General Gotchas)
 - `role=alertdialog` makes sense for these elements since they are important for
-  the user to acknowledge before proceding further alone the document.
+  the user to acknowledge before proceeding further alone the document.
 - Accordingly, this then focuses us to make sure we have JS to make sure other
   things aren't focusable until modals are  closed.
 
@@ -172,7 +175,7 @@ optimal brevity, redundancy, or readibility—nor does it yet adheres to the typ
 - N/A
 
 ## Typography
-- We should have a section explaining that the "use h1 whereever now due to
+- We should have a section explaining that the "use h1 wherever now due to
   sectioning"" is no longer a recommendation
 
 - A section of `aria-level` WAI-ARIA attribute must be created and accounted
@@ -224,4 +227,3 @@ optimal brevity, redundancy, or readibility—nor does it yet adheres to the typ
 # Abide
 - `aria-describedby` must be used by the error tooltips.
 - They must also have `[role=tooltip]`
-
