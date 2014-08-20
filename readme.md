@@ -47,6 +47,8 @@ optimal brevity, redundancy, or readibility—nor does it yet adheres to the typ
   [disabled] attribute.
 
 - with our display none calls, we should use aria-hidden as well.
+- For input elements, use other visbility techniques to make the input invisible
+  but still focusable. 
 
 ## Tooltips
 - We should use alt with tooltips to make it useable for keyboard users as well.

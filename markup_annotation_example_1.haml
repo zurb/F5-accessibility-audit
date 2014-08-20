@@ -2,7 +2,7 @@
 
 /
   Should NEVER be used without role=button and it shouldn't be used ever unless you're going to dynamically add something to Href later or if it's going to link to the content explicitly if JS doesn't work
-  %a{ href: '#', data: { "reveal-id" => "#myModal" }, role: "button", "tab-index" => 0 } Click Me For A Model
+  %a{ href: '#', data: { "reveal-id" => "#myModal" }, role: "button", "tabindex" => 0 } Click Me For A Model
 %button{ data: { "reveal-id" => "#myModal" } } Click Me For A Model
 
 #myModal.reveal-modal{ data: { reveal: true }, role: "alertdialog", aria: { describedby: "reveal-message", busy: false }, tabindex: 0 }
@@ -35,13 +35,13 @@
 
 / Icon Bar w/ Text - Regular  Usage
 %nav.icon-bar.five-up{ role: 'navigation'  }
-  %a{ href: "foo.html", aria: { labeledby: "#itemlabel1", label: 'home', role: "button" }, "tab-index" => 0 }
+  %a{ href: "foo.html", aria: { labeledby: "#itemlabel1", label: 'home', role: "button" }, "tabindex" => 0 }
     %img{ src: "placehold.it&text=Home" }
     %span#itemlabel1 Home
 
 / Icon Bar w/o Text - Regular  Usage
 %nav.icon-bar.five-up{ role: 'navigation' }
-  %a{ role: "button", href: "foo.html", aria: { labeledby: "#itemlabel1", label: 'home' }, "tab-index" => 0 }
+  %a{ role: "button", href: "foo.html", aria: { labeledby: "#itemlabel1", label: 'home' }, "tabindex" => 0 }
     %img{ src: "placehold.it&text=Home" }
 
 / Top Bar
@@ -69,15 +69,15 @@
   /
     May be replaced with <main> if  this is being done directly after body and the content within .inner-wrap is the primary content of the page.
   %main.inner-wrap
-    %button.left-off-canvas-toggle" Menu
+    %button.left-off-canvas-toggle{ aria: { expanded: "true", label: "Open navigation", controls: "#left-off-canvas-menu" } } &equiv;
 
     /
       If you use an element other than nav, please use aria: { role: "navigation" }
-    %nav.left-off-canvas-menu{ role: "navigation", aria: { expanded: "true", haspopup: "true" } }
+    %nav.left-off-canvas-menu{ role: "navigation"  }
       %ul{ role: "menu" }
         %li{ role: "menuitem" } Item 1
         / ...
-    %button.exit-off-canvas &times;
+    %button.exit-off-canvas{ aria: { label: "Close Navigation" } } &times;
 / Clearing
 %ul.clearing-thumbs.small-block-grid-4{ role: "alert", data: { clearing: true }, aria: { live: "assertive",  atomic: "false" } }
   %li
@@ -103,6 +103,6 @@
 
 %ul{ role: "tablist" }
   %li.tab-title{ role: "presentation", aria: { selected: "true", controls: "panel1"  } }
-    %a{ href: '#panel1', role: "tab", "tab-index" => 0 } Tab 1
+    %a{ href: '#panel1', role: "tab", "tabindex" => 0 } Tab 1
 .tabs-content{ role: "presentational" }
   %section#panel1{ role: "tabpanel", aria: { hidden: "false" } }
