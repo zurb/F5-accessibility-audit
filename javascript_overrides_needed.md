@@ -1,4 +1,4 @@
-# JavaScript Overrides
+# JavaScript overrides needed to be done for certain components
 
 # General
 - Toggle  aria-values such as `aria-expanded` and `aria-show` through a general
@@ -9,15 +9,23 @@
   replaced with `dialogalert` sometimes.
 
 ## Reveal
-- If an element has [data-reveal] and isn't a dialog, create a dialog element
-  from its contents, attach the new dialog to the DOM, and remove the faux
-  dialog
+- If an element has [data-reveal] and isn't a dialog, create a dialog element  from its contents, attach the new dialog to the DOM, and remove the faux dialog
+- Alternatively, create a if/else condition on whether the element with the attribute is a dialog
+  to use `showModal()` & `close()`. If this strategy is done, the `toggle_bg`
+  logic needs to be reengineered; I received `bg_class` is undefined errors when
+  attempting to close valid instances of dialog elements being revealed with the
+  usual
+- CSS3 animations should be used to animate reveal dialog entries; for IE9, it
+  should fallback to the code previously provided. Nonetheless, the JS animation
+  code would have to be engineered to not worry about created and maintaining
+  the state of a `backdrop` on its own.
+
 - `showModal` used instead of `open()` to reveal the component since dialog has
   that built in to show the dialog and address accessibility concerns with dialog-like elements to meet WCAG 2.0 standards (i.e, nothing but the dialog shouldbe focusable when the dialog element is active))
   - Ideally with `showModal?` (Coffee)—or the native equivalent through
     condition checking-we could fallback to the original custom `open` event)
-- on `keypress.escape`(jQuery) or the respective keycode equivalent, the modal
-  should be close
+- on `keypress.escape` or the respective `keycode` equivalent, the modal
+  should be closed
 
 - <del>Shift combined with Escape Should Combined</del> Escape key should used to close the dialog
 
@@ -53,7 +61,7 @@ this component's use by the user.
 - `tabindex=0` should be used on the active tab and `tabindex=-1` should be used for adjacent tabs; `focus()` should be used to go to the next and previous tabs for an element.
 - <kbd>Shift</kbd>+<kbd>Tab</kbd> should be used to switch back to a tab after
   tabbing or navigating through its inner content.
-- The `first-child` should have a tab-index=0 of the selected Tab so that they
+- The `first-child` of each tabpanel should have a tab-index=0 of the selected Tab so that they
   tab into its contents instead of activating Tabs adjacent to other
   tabs by mistake.
 
