@@ -87,19 +87,20 @@
   <!--
     May be replaced with <main> if  this is being done directly after body and the content within .inner-wrap is the primary content of the page.
   -->
-  <main class='inner-wrap'>
-    <button aria-controls='#left-off-canvas-menu' aria-expanded='true' aria-label='Open navigation' class='left-off-canvas-toggle'>&equiv;</button>
+  <div class='inner-wrap'>
+    <a aria-controls='#left-off-canvas-menu' aria-expanded='true' aria-label='Open navigation' class='left-off-canvas-toggle' href='#left-off-canvas-menu' role='button'>&equiv;</a>
+    <!-- %button.left-off-canvas-toggle{ aria: { expanded: "true", label: "Open navigation", controls: "#left-off-canvas-menu" } } &equiv; -->
     <!--
       If you use an element other than nav, please use aria: { role: "navigation" }
     -->
-    <nav class='left-off-canvas-menu' role='navigation'>
+    <nav id='left-off-canvas-menu' role='navigation'>
       <ul role='menu'>
         <li role='menuitem'>Item 1</li>
         <!-- ... -->
       </ul>
     </nav>
     <button aria-label='Close Navigation' class='exit-off-canvas'>&times;</button>
-  </main>
+  </div>
 </div>
 <!-- Clearing -->
 <ul aria-atomic='false' aria-live='assertive' class='clearing-thumbs small-block-grid-4' data-clearing role='alert'>
@@ -133,8 +134,8 @@
   </div>
 </dialog>
 <ul role='tablist'>
-  <li aria-controls='panel1' aria-selected='true' class='tab-title' role='presentation'>
-    <a href='#panel1' role='tab' tabindex='0'>Tab 1</a>
+  <li class='tab-title' role='presentation'>
+    <a aria-controls='panel1' aria-selected='true' href='#panel1' role='tab' tabindex='0'>Tab 1</a>
   </li>
 </ul>
 <div class='tabs-content' role='presentational'>

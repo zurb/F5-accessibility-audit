@@ -68,12 +68,13 @@
 
   /
     May be replaced with <main> if  this is being done directly after body and the content within .inner-wrap is the primary content of the page.
-  %main.inner-wrap
-    %button.left-off-canvas-toggle{ aria: { expanded: "true", label: "Open navigation", controls: "#left-off-canvas-menu" } } &equiv;
+  %div.inner-wrap
+    %a.left-off-canvas-toggle{ href: "#left-off-canvas-menu", role: "button", aria: { expanded: "true", label: "Open navigation", controls: "#left-off-canvas-menu" } } &equiv;
+    / %button.left-off-canvas-toggle{ aria: { expanded: "true", label: "Open navigation", controls: "#left-off-canvas-menu" } } &equiv;
 
     /
       If you use an element other than nav, please use aria: { role: "navigation" }
-    %nav.left-off-canvas-menu{ role: "navigation"  }
+    %nav#left-off-canvas-menu{ role: "navigation" }
       %ul{ role: "menu" }
         %li{ role: "menuitem" } Item 1
         / ...
@@ -102,7 +103,7 @@
     %button.clearing-close{ aria: { label: "Close this widget." } } &times;
 
 %ul{ role: "tablist" }
-  %li.tab-title{ role: "presentation", aria: { selected: "true", controls: "panel1"  } }
-    %a{ href: '#panel1', role: "tab", "tabindex" => 0 } Tab 1
+  %li.tab-title{ role: "presentation", }
+    %a{ href: '#panel1', role: "tab", "tabindex" => 0, aria: { selected: "true", controls: "panel1"  }  } Tab 1
 .tabs-content{ role: "presentational" }
   %section#panel1{ role: "tabpanel", aria: { hidden: "false" } }
