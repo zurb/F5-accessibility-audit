@@ -107,3 +107,15 @@
     %a{ href: '#panel1', role: "tab", "tabindex" => 0, aria: { selected: "true", controls: "panel1"  }  } Tab 1
 .tabs-content{ role: "presentational" }
   %section#panel1{ role: "tabpanel", aria: { hidden: "false" } }
+
+/ Dropdown (normal usage)
+%button{ data: { dropdown: "drop1" }, aria: { controls: "drop1", expanded: "true" } } Dropdown Button
+%ul#drop1.f-dropdown{ role="menu", data: {  "dropdown-content" => true, aria: { hidden: "false" }  }
+  %li
+    %a{ :href => "foo.html" } This is a link
+  %li
+    %a{ :href => "bar.html" } This is another
+  %li
+    %a{ :href => "baz.html" } Yet another
+
+
